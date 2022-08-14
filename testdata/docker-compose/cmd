@@ -1,0 +1,9 @@
+docker run --name mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=toor -d mysql
+/usr/local/Cellar/mysql-client/8.0.28/bin/mysql -h 127.0.0.1 -u root -ptoor
+
+create database goblog
+create user goblog@'%' identified by 'goblog';
+grant all privileges on goblog.* to goblog@'%';
+flush privileges;
+
+/usr/local/Cellar/mysql-client/8.0.28/bin/mysql -h 127.0.0.1 -u goblog -pgoblog
